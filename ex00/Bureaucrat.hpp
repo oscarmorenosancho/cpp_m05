@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:22:29 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/22 23:03:17 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/22 23:34:18 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,10 @@ public:
 	Bureaucrat& operator=(const Bureaucrat& b);
 	const std::string	getName() const;
 	int 				getGrade() const;
-	void				incrementGrade();
-	void				decrementGrade();
+	void				incrementGrade(int amount);
+	void				decrementGrade(int amount);
 };
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
 
 #endif

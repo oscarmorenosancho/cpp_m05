@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:22:34 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/22 23:03:41 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/22 23:49:51 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Bureaucrat::~Bureaucrat()
 	;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& b) : _name(b._name),
+Bureaucrat::Bureaucrat(const Bureaucrat& b) : _name(b._name + "_copy"), _grade(b._grade),
 	GradeTooLowException(std::string("Exception. Grade Too Low for ") + _name),
 	GradeTooHighException(std::string("Exception. Grade Too High for " + _name))
 {
@@ -41,6 +41,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& b) : _name(b._name),
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b)
 {
+	this->_grade = b._grade;
 	std::cout << "Bureaucrat copy assignment operator called for ";
 	std::cout << _name << " to become " << b._name << std::endl;
 	return (*new Bureaucrat(b));
@@ -56,18 +57,18 @@ int	Bureaucrat::getGrade() const
 	return (_grade);
 }
 
-void	Bureaucrat::incrementGrade()
+void	Bureaucrat::incrementGrade(int amount)
 {
-	if (_grade == 1)
+	if (_grade - amount < 1)
 		throw GradeTooHighException;
-	_grade--;
+	_grade -= amount;
 }
 
-void	Bureaucrat::decrementGrade()
+void	Bureaucrat::decrementGrade(int amount)
 {
-	if (_grade == 150)
+	if (_grade + amount > 150)
 		throw GradeTooLowException;
-	_grade++;
+	_grade += amount;
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
