@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/22 16:22:46 by omoreno-          #+#    #+#              #
-#    Updated: 2023/09/22 16:23:19 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/09/22 18:24:11 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,28 +16,36 @@ CLASSSRC	:=	Bureaucrat.cpp
 
 MAINSRC		:=	main.cpp
 
+BUILD_PATH	:= .build/
 HEADER		:=	$(CLASSSRC:.cpp=.hpp)
-CLASSOBJ	:=	$(CLASSSRC:.cpp=.o)
-MAINOBJ		:=	$(MAINSRC:.cpp=.o)
+
+MAINOBJ		:= $(addprefix $(BUILD_PATH), $(MAINSRC:.cpp=.o))
+CLASSOBJ	:= $(addprefix $(BUILD_PATH), $(CLASSSRC:.cpp=.o))
+MAINDEPS	:= $(addprefix $(BUILD_PATH), $(MAINSRC:.cpp=.d))
+CLASSDEPS	:= $(addprefix $(BUILD_PATH), $(CLASSSRC:.cpp=.d))
 
 CC			:=	@c++
-RM			:=	@rm -f
+RM			:=	@rm -Rf
 CFLAGS		:=	-Wall -Werror -Wextra -std=c++98
 
-all : $(NAME)
+folder_create 	= $(shell mkdir -p $(1))
 
-%.o : %.cpp ${HEADER} Makefile
+.SECONDEXPANSION:
+
+
+$(BUILD_PATH)%.o : %.cpp ${HEADER} Makefile | $$(call folder_create,$$(dir $$@))
 	@echo "Compiling" $@
 	${CC} ${CFLAGS} -c $< -o $@
+
+all : $(NAME)
 
 $(NAME) : ${CLASSOBJ} ${MAINOBJ} ${HEADER} Makefile
 	@echo "Linking" $@
 	${CC} ${CFLAGS} ${CLASSOBJ} ${MAINOBJ} -o $@
 
 clean :
-	$(RM) $(CLASSOBJ)
-	$(RM) $(MAINOBJ)
-	@echo "Cleaned objects"
+	@echo "Cleaning $(BUILD_PATH) ..."
+	$(RM) $(BUILD_PATH)
 
 fclean : clean
 	$(RM) $(NAME)
