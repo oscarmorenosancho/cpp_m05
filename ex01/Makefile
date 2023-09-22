@@ -6,13 +6,13 @@
 #    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/22 16:22:46 by omoreno-          #+#    #+#              #
-#    Updated: 2023/09/22 23:50:22 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/09/23 01:11:12 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME:= Bureaucrat
 
-CLASSSRC	:=	Bureaucrat.cpp
+CLASSSRC	:=	Bureaucrat.cpp Form.cpp
 
 MAINSRC		:=	main.cpp
 

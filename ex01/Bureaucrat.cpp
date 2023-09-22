@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:22:34 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/22 23:49:51 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/23 01:39:44 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ Bureaucrat::Bureaucrat(std::string name, int grade): _name(name),
 
 Bureaucrat::~Bureaucrat()
 {
-	;
+	std::cout << "Bureaucrat destructor called for ";
+	std::cout << _name << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& b) : _name(b._name + "_copy"), _grade(b._grade),
@@ -71,8 +72,24 @@ void	Bureaucrat::decrementGrade(int amount)
 	_grade += amount;
 }
 
+void	Bureaucrat::signForm(Form& form) const
+{
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << _name << " couldn’t sign " << form.getName();
+		std::cout << " because " << e.what();
+		std::cout << ", its grade is lower than ";
+		std::cout << form.getSignGrade() << " needed by form" << std::endl;
+	}
+	std::cout << _name <<" signed " << form.getName() << std::endl;
+}
+
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
 {
-	os << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
+	os << b.getName() << ", bureaucrat grade " << b.getGrade();
 	return (os);
 }
