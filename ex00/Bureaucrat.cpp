@@ -6,14 +6,14 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:22:34 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/22 18:00:24 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/22 23:03:41 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./Bureaucrat.hpp"
 #include <iostream>
 
-Bureaucrat::Bureaucrat(std::string name, u_int8_t grade): _name(name),
+Bureaucrat::Bureaucrat(std::string name, int grade): _name(name),
 	GradeTooLowException(std::string("Exception. Grade Too Low for ") + _name),
 	GradeTooHighException(std::string("Exception. Grade Too High for " + _name))
 {

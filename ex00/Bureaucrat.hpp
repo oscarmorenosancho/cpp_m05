@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:22:29 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/22 17:57:58 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/22 23:03:17 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ private:
 	std::underflow_error 	GradeTooLowException;
 	std::overflow_error		GradeTooHighException;
 public:
-	Bureaucrat(std::string name, u_int8_t grade);
+	Bureaucrat(std::string name, int grade);
 	~Bureaucrat();
 	Bureaucrat(const Bureaucrat& b);
 	Bureaucrat& operator=(const Bureaucrat& b);
