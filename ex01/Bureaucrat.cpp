@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:22:34 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/23 01:39:44 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/23 19:00:35 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <iostream>
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name),
-	GradeTooLowException(std::string("Exception. Grade Too Low for ") + _name),
-	GradeTooHighException(std::string("Exception. Grade Too High for " + _name))
+	GradeTooLowException(std::string(RED EXC_GTL) + _name + R_COL),
+	GradeTooHighException(std::string(RED EXC_GTH) + _name + R_COL)
 {
 	std::cout << "Bureaucrat constructor called for ";
 	std::cout << _name << std::endl;
@@ -33,8 +33,8 @@ Bureaucrat::~Bureaucrat()
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& b) : _name(b._name + "_copy"), _grade(b._grade),
-	GradeTooLowException(std::string("Exception. Grade Too Low for ") + _name),
-	GradeTooHighException(std::string("Exception. Grade Too High for " + _name))
+	GradeTooLowException(std::string(RED EXC_GTL) + _name + R_COL),
+	GradeTooHighException(std::string(RED EXC_GTH) + _name + R_COL)
 {
 	std::cout << "Bureaucrat copy constructor called for ";
 	std::cout << _name << std::endl;
@@ -77,15 +77,15 @@ void	Bureaucrat::signForm(Form& form) const
 	try
 	{
 		form.beSigned(*this);
+		std::cout << GREEN << _name <<" signed " << form.getName() << R_COL<< std::endl;
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << _name << " couldn’t sign " << form.getName();
+		std::cout << RED << _name << " couldn’t sign " << form.getName();
 		std::cout << " because " << e.what();
 		std::cout << ", its grade is lower than ";
-		std::cout << form.getSignGrade() << " needed by form" << std::endl;
+		std::cout << form.getSignGrade() << " needed by form" R_COL << std::endl;
 	}
-	std::cout << _name <<" signed " << form.getName() << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)

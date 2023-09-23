@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:22:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/23 17:43:22 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/23 19:16:12 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(void)
 	Bureaucrat d("D", 150);
 	Form form("Permission", 100, 50);
 	Form strictForm("Strict Permission", 1, 50);
-	std::cerr << "#Try contructor with grade 0" << std::endl;
+	std::cout << BLUE "#Try contructor with grade 0" R_COL << std::endl;
 	try
 	{
 		Bureaucrat omega("Omega", 0);
@@ -31,7 +31,7 @@ int main(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	std::cout << "#Try contructor with grade 151" << std::endl;
+	std::cout << BLUE "#Try contructor with grade 151" R_COL << std::endl;
 	try
 	{
 		Bureaucrat eta("Eta", 151);
@@ -40,15 +40,16 @@ int main(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	std::cout << "#Status" << std::endl;
+	std::cout << YELLOW "#Status" << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << c << std::endl;
 	std::cout << d << std::endl;
 	std::cout << form << std::endl;
 	std::cout << strictForm << std::endl;
+	std::cout << R_COL;
 	d = b;
-	std::cout << "#Try grade increments" << std::endl;
+	std::cout << BLUE "#Try grade increments" R_COL << std::endl;
 	try
 	{
 		a.incrementGrade(1);
@@ -59,14 +60,15 @@ int main(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	std::cout << "#Status" << std::endl;
+	std::cout << YELLOW "#Status" << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << c << std::endl;
 	std::cout << d << std::endl;
 	std::cout << form << std::endl;
 	std::cout << strictForm << std::endl;
-	std::cout << "#Try grade decrements" << std::endl;
+	std::cout << R_COL;
+	std::cout << BLUE "#Try grade decrements" R_COL << std::endl;
 	try
 	{
 		a.decrementGrade(1);
@@ -76,21 +78,23 @@ int main(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	std::cout << "#Status" << std::endl;
+	std::cout << YELLOW "#Status" << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << c << std::endl;
 	std::cout << d << std::endl;
 	std::cout << form << std::endl;
 	std::cout << strictForm << std::endl;
+	std::cout << R_COL;
 	a.signForm(form);
 	b.signForm(strictForm);
-	std::cout << "#Status" << std::endl;
+	std::cout << YELLOW "#Status" << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << c << std::endl;
 	std::cout << d << std::endl;
 	std::cout << form << std::endl;
 	std::cout << strictForm << std::endl;
+	std::cout << R_COL;
 	return 0;
 }
