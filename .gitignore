@@ -2,3 +2,4 @@
 *.d
 .build/
 Bureaucrat
+*_shrubbery.txt

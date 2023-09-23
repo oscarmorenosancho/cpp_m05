@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:35:47 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/23 19:33:05 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/24 00:31:13 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class ShrubberyCreationForm : public AForm
 private:
 	std::string				_target;
 	std::runtime_error 		NotSignedException;
+	void					CreateGreenTree(std::ostream& os) const;
+	void					CreateGoldenTree(std::ostream& os) const;
 protected:
 	const std::runtime_error& 	getNotSignedException() const;
 public:
