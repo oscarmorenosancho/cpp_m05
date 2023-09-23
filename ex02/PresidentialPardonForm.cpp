@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:40:30 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/23 19:28:48 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/24 00:56:33 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 		throw getGradeTooLowException();
 	if (!getSigned())
 		throw NotSignedException;
-	std::cout << getName() << " executed on target " << getTarget() << std::endl;
-	//TODO actual execution
+	std::cout << YELLOW << getTarget() << " has been pardoned by Zaphod Beeblebrox" << R_COL << std::endl;
+	std::cout << GREEN << getName() << " executed on target " << getTarget() << R_COL << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const PresidentialPardonForm& b)

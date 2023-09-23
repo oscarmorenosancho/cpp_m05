@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:36:04 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/24 00:31:18 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/24 01:08:50 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "./Bureaucrat.hpp"
 #include <fstream>
 #include <iostream>
+#include <cstdlib>
+#include <time.h>
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target): 
 	AForm(target + "_ShrubberyCreationForm", 
@@ -142,8 +144,12 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 		std::cerr << R_COL << std::endl;
 		return;
 	}
-	CreateGreenTree(fout);
-	CreateGoldenTree(fout);
+	srand(time(0));
+	for (int i = std::rand() % 5; i >=0 ; i--)
+    	if (rand() % 2)
+			CreateGreenTree(fout);
+		else
+			CreateGoldenTree(fout);
 	fout.close();
 }
 

@@ -6,13 +6,15 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:39:27 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/23 19:31:40 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/24 00:56:53 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./RobotomyRequestForm.hpp"
 #include "./Bureaucrat.hpp"
 #include <iostream>
+#include <cstdlib>
+#include <time.h>
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target): 
 	AForm(target + "_RobotomyRequestForm", 
@@ -63,8 +65,13 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 		throw getGradeTooLowException();
 	if (!getSigned())
 		throw NotSignedException;
-	std::cout << getName() << " executed on target " << getTarget() << std::endl;
-	//TODO actual execution
+	std::cout << PURPLE "Drrrrrrrilllling...." R_COL << std::endl;
+	srand(time(0));
+    if (rand() % 2)
+		std::cout << BLUE << getTarget() << " has been robotomized" << R_COL << std::endl;	
+	else
+		std::cout << PURPLE << "Robotomy failed on " << getTarget() << R_COL << std::endl;	
+	std::cout << GREEN << getName() << " executed on target " << getTarget() << R_COL << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const RobotomyRequestForm& b)

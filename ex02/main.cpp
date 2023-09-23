@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:22:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/23 19:38:35 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/24 01:28:15 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int main(void)
 	std::cout << c << std::endl;
 	std::cout << d << std::endl;
 	std::cout << form << std::endl;
+	std::cout << robForm << std::endl;
 	std::cout << strictForm << std::endl;
 	d = b;
 	std::cout << BLUE "#Try grade increments" R_COL << std::endl;
@@ -68,6 +69,7 @@ int main(void)
 	std::cout << c << std::endl;
 	std::cout << d << std::endl;
 	std::cout << form << std::endl;
+	std::cout << robForm << std::endl;
 	std::cout << strictForm << std::endl;
 	std::cout << R_COL;
 	std::cout << BLUE "#Try grade decrements" R_COL << std::endl;
@@ -86,10 +88,12 @@ int main(void)
 	std::cout << c << std::endl;
 	std::cout << d << std::endl;
 	std::cout << form << std::endl;
+	std::cout << robForm << std::endl;
 	std::cout << strictForm << std::endl;
 	std::cout << R_COL;
 	std::cout << BLUE "#Try execute before signing" R_COL << std::endl;
-	a.executeForm(form);
+	a.executeForm(robForm);
+	c.executeForm(form);
 	b.executeForm(strictForm);
 	std::cout << YELLOW "#Status" << std::endl;
 	std::cout << a << std::endl;
@@ -97,28 +101,35 @@ int main(void)
 	std::cout << c << std::endl;
 	std::cout << d << std::endl;
 	std::cout << form << std::endl;
+	std::cout << robForm << std::endl;
 	std::cout << strictForm << std::endl;
 	std::cout << R_COL;
 	std::cout << BLUE "#Try sign" R_COL << std::endl;
-	a.signForm(form);
-	b.signForm(strictForm);
+	c.signForm(form);
+	b.signForm(robForm);
+	a.signForm(strictForm);
 	std::cout << YELLOW "#Status" << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << c << std::endl;
 	std::cout << d << std::endl;
 	std::cout << form << std::endl;
+	std::cout << robForm << std::endl;
 	std::cout << strictForm << std::endl;
 	std::cout << R_COL;
 	std::cout << BLUE "#Try execute after signing" R_COL << std::endl;
 	a.executeForm(form);
+	a.executeForm(robForm);
 	b.executeForm(strictForm);
+	c.executeForm(strictForm);
+	a.executeForm(strictForm);
 	std::cout << YELLOW "#Status" << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << c << std::endl;
 	std::cout << d << std::endl;
 	std::cout << form << std::endl;
+	std::cout << robForm << std::endl;
 	std::cout << strictForm << std::endl;
 	std::cout << R_COL;
 	return 0;
