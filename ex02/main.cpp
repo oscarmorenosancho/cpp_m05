@@ -6,11 +6,13 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:22:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/23 19:05:30 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/23 19:38:35 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./Bureaucrat.hpp"
+#include "./ShrubberyCreationForm.hpp"
+#include "./RobotomyRequestForm.hpp"
 #include "./PresidentialPardonForm.hpp"
 #include <iostream>
 
@@ -20,7 +22,8 @@ int main(void)
 	Bureaucrat b("B", 35);
 	Bureaucrat c(a);
 	Bureaucrat d("D", 150);
-	PresidentialPardonForm form("Guilty");
+	ShrubberyCreationForm form("Garden");
+	RobotomyRequestForm robForm("HAL");
 	PresidentialPardonForm strictForm("Guilty");
 	std::cout << BLUE "#Try contructor with grade 0" R_COL << std::endl;
 	try

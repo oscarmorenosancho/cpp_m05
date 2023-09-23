@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:40:30 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/23 19:09:36 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/23 19:28:48 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target):
 	AForm(target + "_PresidentialPardonForm", 
 		PRESIDENTIALPARDONSIGNGRADE, PRESIDENTIALPARDONEXECGRADE),
 	_target(target),
-	NotSignedException(std::string("Exception. " + getName() + " NOT signed"))
+	NotSignedException(std::string(RED EXC_T + getName() + N_SIGN R_COL))
 {
 	std::cout << "PresidentialPardonForm constructor called for ";
 	std::cout << getName() << " with target " << _target << std::endl;
@@ -34,7 +34,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& b) 
 	AForm(_target + "_PresidentialPardonForm", 
 		PRESIDENTIALPARDONSIGNGRADE, PRESIDENTIALPARDONEXECGRADE),
 	_target(b._target),
-	NotSignedException(std::string("Exception. " + getName() + " NOT signed"))
+	NotSignedException(std::string(RED EXC_T + getName() + N_SIGN R_COL))
 {
 	std::cout << "PresidentialPardonForm copy constructor called for ";
 	std::cout << getName() << std::endl;

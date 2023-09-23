@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:40:42 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/23 17:37:11 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/23 19:26:40 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@
 # include <string>
 # include <stdexcept>
 # include "./AForm.hpp"
-#define PRESIDENTIALPARDONSIGNGRADE 25
-#define PRESIDENTIALPARDONEXECGRADE 5
+# define PRESIDENTIALPARDONSIGNGRADE 25
+# define PRESIDENTIALPARDONEXECGRADE 5
+# define EXC_T "Exception. "
+# define N_SIGN " NOT signed"
+
 class Bureaucrat;
 
 class PresidentialPardonForm : public AForm
