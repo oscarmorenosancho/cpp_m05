@@ -6,12 +6,12 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:22:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/23 17:43:22 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/23 17:40:54 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./Bureaucrat.hpp"
-#include "./Form.hpp"
+#include "./PresidentialPardonForm.hpp"
 #include <iostream>
 
 int main(void)
@@ -20,8 +20,8 @@ int main(void)
 	Bureaucrat b("B", 35);
 	Bureaucrat c(a);
 	Bureaucrat d("D", 150);
-	Form form("Permission", 100, 50);
-	Form strictForm("Strict Permission", 1, 50);
+	PresidentialPardonForm form("Guilty");
+	PresidentialPardonForm strictForm("Guilty");
 	std::cerr << "#Try contructor with grade 0" << std::endl;
 	try
 	{
@@ -83,8 +83,29 @@ int main(void)
 	std::cout << d << std::endl;
 	std::cout << form << std::endl;
 	std::cout << strictForm << std::endl;
+	// std::cout << "#Try execute before signing" << std::endl;
+	// a.executeForm(form);
+	// b.executeForm(strictForm);
+	// std::cout << "#Status" << std::endl;
+	// std::cout << a << std::endl;
+	// std::cout << b << std::endl;
+	// std::cout << c << std::endl;
+	// std::cout << d << std::endl;
+	// std::cout << form << std::endl;
+	// std::cout << strictForm << std::endl;
+	std::cout << "#Try sign" << std::endl;
 	a.signForm(form);
 	b.signForm(strictForm);
+	std::cout << "#Status" << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << c << std::endl;
+	std::cout << d << std::endl;
+	std::cout << form << std::endl;
+	std::cout << strictForm << std::endl;
+	std::cout << "#Try execute after signing" << std::endl;
+	a.executeForm(form);
+	b.executeForm(strictForm);
 	std::cout << "#Status" << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
