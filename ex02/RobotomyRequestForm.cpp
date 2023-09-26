@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:39:27 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/24 00:56:53 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/26 11:43:10 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ RobotomyRequestForm::~RobotomyRequestForm()
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& b) : 
-	AForm(_target + "_RobotomyRequestForm", 
+	AForm(b._target + "_ShrubberyCreationForm", 
 		ROBOTOMYREQUESTSIGNGRADE, ROBOTOMYREQUESTEXECGRADE),
 	_target(b._target),
-	NotSignedException(std::string(RED EXC_T + getName() + N_SIGN R_COL))
+	NotSignedException(std::string(RED EXC_T + b.getName() + N_SIGN R_COL))
 {
 	std::cout << "RobotomyRequestForm copy constructor called for ";
 	std::cout << getName() << std::endl;

@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:36:04 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/24 01:08:50 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/26 11:36:53 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& b) : 
-	AForm(_target + "_ShrubberyCreationForm", 
+	AForm(b._target + "_ShrubberyCreationForm", 
 		SHRUBBERYCREATIONSIGNGRADE, SHRUBBERYCREATIONEXECGRADE),
 	_target(b._target),
-	NotSignedException(std::string(RED EXC_T + getName() + N_SIGN R_COL))
+	NotSignedException(std::string(RED EXC_T + b.getName() + N_SIGN R_COL))
 {
 	std::cout << "ShrubberyCreationForm copy constructor called for ";
 	std::cout << getName() << std::endl;

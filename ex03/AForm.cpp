@@ -45,11 +45,11 @@ AForm::AForm(const AForm& b) : _name(b._name + "_copy"),
 
 AForm& AForm::operator=(const AForm& b)
 {
-	AForm& ref = *(AForm *)&b;
 	std::cout << "AForm copy assignment operator called for ";
 	std::cout << _name << " to become " << b._name << std::endl;
 	std::cout << "Since AForm is Abstract can't be created a new one, ";
 	std::cout << "the same reference is returned" << std::endl;
+	AForm& ref = *(AForm *)&b;
 	return (ref);
 }
 

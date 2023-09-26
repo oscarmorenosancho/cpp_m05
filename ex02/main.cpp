@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:22:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/24 01:28:15 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/26 11:54:21 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(void)
 	Bureaucrat a("A", 4);
 	Bureaucrat b("B", 35);
 	Bureaucrat c(a);
-	Bureaucrat d("D", 150);
+	Bureaucrat& d = *new Bureaucrat("D", 150);
 	ShrubberyCreationForm form("Garden");
 	RobotomyRequestForm robForm("HAL");
 	PresidentialPardonForm strictForm("Guilty");
@@ -51,7 +51,6 @@ int main(void)
 	std::cout << form << std::endl;
 	std::cout << robForm << std::endl;
 	std::cout << strictForm << std::endl;
-	d = b;
 	std::cout << BLUE "#Try grade increments" R_COL << std::endl;
 	try
 	{
@@ -82,6 +81,7 @@ int main(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	d = b;
 	std::cout << YELLOW "#Status" << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
@@ -132,5 +132,6 @@ int main(void)
 	std::cout << robForm << std::endl;
 	std::cout << strictForm << std::endl;
 	std::cout << R_COL;
+	delete &d;
 	return 0;
 }

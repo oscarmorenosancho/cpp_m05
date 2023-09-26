@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:22:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/23 19:16:12 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/26 11:40:26 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(void)
 	Bureaucrat a("A", 25);
 	Bureaucrat b("B", 35);
 	Bureaucrat c(a);
-	Bureaucrat d("D", 150);
+	Bureaucrat& d = *new Bureaucrat("D", 150);
 	Form form("Permission", 100, 50);
 	Form strictForm("Strict Permission", 1, 50);
 	std::cout << BLUE "#Try contructor with grade 0" R_COL << std::endl;
@@ -78,6 +78,7 @@ int main(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	d = b;
 	std::cout << YELLOW "#Status" << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
@@ -96,5 +97,6 @@ int main(void)
 	std::cout << form << std::endl;
 	std::cout << strictForm << std::endl;
 	std::cout << R_COL;
+	delete &d;
 	return 0;
 }

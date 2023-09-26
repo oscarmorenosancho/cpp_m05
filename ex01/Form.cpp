@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 00:11:05 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/23 17:17:24 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/26 11:26:13 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,13 @@ Form& Form::operator=(const Form& b)
 {
 	std::cout << "Form copy assignment operator called for ";
 	std::cout << _name << " to become " << b._name << std::endl;
-	return (*new Form(b));
+	if (this != &b)
+	{
+		delete this;
+		Form* tmp = new Form(b);
+		return (*tmp);
+	}
+	return (*this);
 }
 
 const std::underflow_error& 	Form::getGradeTooLowException() const
