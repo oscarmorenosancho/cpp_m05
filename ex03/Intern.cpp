@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 12:20:36 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/27 18:55:44 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/27 20:25:33 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,26 +65,17 @@ AForm 			*(*Intern::creator[3])(std::string target) =
 
 AForm *Intern::makeForm(std::string form, std::string target)
 {
-	AForm		*ret = nullptr;
+	AForm			*ret = (AForm *)NULL;
+	unsigned int	i = 0;
 
-	int i = 0;
 	while (i < 3 && types[i] != form)
 		i++;
-	switch (i)
+	if (i > 2)
 	{
-	case 0:
-		ret = new ShrubberyCreationForm(target);
-		break;
-	case 1:
-		ret = new RobotomyRequestForm(target);
-		break;
-	case 2:
-		ret = new PresidentialPardonForm(target);
-		break;
-	default:
 		std::cout << RED "Form of type " << form << " non existent!" R_COL << std::endl;
 		return (ret);
 	}
+	ret = creator[i](target);
 	std::cout << "Intern creates " << ret->getName() << std::endl;
 	return (ret);
 }
