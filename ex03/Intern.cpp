@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 12:20:36 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/27 20:25:33 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/27 20:32:45 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
 
-Intern::Intern(/* args */)
+Intern::Intern()
 {
+	std::cout << "Intern constructor called" << std::endl;
 }
 
 Intern::~Intern()
