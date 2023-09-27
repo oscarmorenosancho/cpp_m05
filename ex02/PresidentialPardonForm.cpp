@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:40:30 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/26 11:44:38 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/27 14:09:20 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,13 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 {
 	std::cout << "PresidentialPardonForm copy assignment operator called for ";
 	std::cout << getName() << " to become " << b.getName() << std::endl;
-	return (*new PresidentialPardonForm(b));
+	if (this != &b)
+	{
+		delete this;
+		PresidentialPardonForm* tmp = new PresidentialPardonForm(b);
+		return (*tmp);
+	}
+	return (*this);
 }
 
 const std::runtime_error& 	PresidentialPardonForm::getNotSignedException() const

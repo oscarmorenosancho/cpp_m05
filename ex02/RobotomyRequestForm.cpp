@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:39:27 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/26 11:43:10 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/27 14:09:55 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,13 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& b
 {
 	std::cout << "RobotomyRequestForm copy assignment operator called for ";
 	std::cout << getName() << " to become " << b.getName() << std::endl;
-	return (*new RobotomyRequestForm(b));
+	if (this != &b)
+	{
+		delete this;
+		RobotomyRequestForm* tmp = new RobotomyRequestForm(b);
+		return (*tmp);
+	}
+	return (*this);
 }
 
 const std::runtime_error& 	RobotomyRequestForm::getNotSignedException() const
