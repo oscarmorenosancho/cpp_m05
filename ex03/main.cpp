@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:22:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/27 14:32:50 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/27 14:52:20 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ int main(void)
 	Bureaucrat& d = *new Bureaucrat("D", 150);
 	Intern  someRandomIntern;
     AForm*   rrf;
+	rrf = someRandomIntern.makeForm("unknown", "Bender");
+	if (rrf)
+		delete rrf;
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 	ShrubberyCreationForm form("Garden");
 	RobotomyRequestForm robForm("HAL");

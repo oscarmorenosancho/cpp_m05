@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 12:20:36 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/27 13:00:27 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/27 14:46:45 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ AForm *Intern::makeForm(std::string form, std::string target)
 		std::cout << RED "Form of type " << form << " non existent!" R_COL << std::endl;
 		return (ret);
 	}
-	std::cout << "Intern creates " << form << std::endl;
+	std::cout << "Intern creates " << ret->getName() << std::endl;
 	return (ret);
 }
 
