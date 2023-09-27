@@ -6,7 +6,7 @@
 #    By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/22 16:22:46 by omoreno-          #+#    #+#              #
-#    Updated: 2023/09/23 19:35:14 by omoreno-         ###   ########.fr        #
+#    Updated: 2023/09/27 11:48:47 by omoreno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CLASSSRC	:=	Bureaucrat.cpp \
 				AForm.cpp \
 				ShrubberyCreationForm.cpp \
 				RobotomyRequestForm.cpp \
-				PresidentialPardonForm.cpp
+				PresidentialPardonForm.cpp \
+				Intern.cpp
 
 MAINSRC		:=	main.cpp
 
