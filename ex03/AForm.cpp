@@ -47,10 +47,9 @@ AForm& AForm::operator=(const AForm& b)
 {
 	std::cout << "AForm copy assignment operator called for ";
 	std::cout << _name << " to become " << b._name << std::endl;
-	std::cout << "Since AForm is Abstract can't be created a new one, ";
-	std::cout << "the same reference is returned" << std::endl;
-	AForm& ref = *(AForm *)&b;
-	return (ref);
+	if (this != &b)
+		_signed = b._signed;
+	return (*this);
 }
 
 const std::underflow_error& 	AForm::getGradeTooLowException() const

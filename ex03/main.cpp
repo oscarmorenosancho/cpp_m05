@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:22:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/27 14:52:20 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/27 19:13:42 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "./RobotomyRequestForm.hpp"
 #include "./PresidentialPardonForm.hpp"
 
-void	ft_print_status(Bureaucrat **bureaucrats, AForm **forms)
+static void	ft_print_status(Bureaucrat **bureaucrats, AForm **forms)
 {
 	std::cout << YELLOW "#Status" << std::endl;
 	std::cout << *bureaucrats[0] << std::endl;
@@ -28,6 +28,7 @@ void	ft_print_status(Bureaucrat **bureaucrats, AForm **forms)
 	std::cout << *forms[1] << std::endl;
 	std::cout << *forms[2] << std::endl;
 	std::cout << *forms[3] << std::endl;
+	std::cout << *forms[4] << std::endl;
 	std::cout << R_COL;
 }
 
@@ -45,8 +46,9 @@ int main(void)
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 	ShrubberyCreationForm form("Garden");
 	RobotomyRequestForm robForm("HAL");
-	PresidentialPardonForm strictForm("Guilty");
-	AForm*	forms[4] ={&form, &robForm, rrf, &strictForm};
+	PresidentialPardonForm &strictForm = *new PresidentialPardonForm("Guilty");
+	PresidentialPardonForm &will_b_copied =  *new PresidentialPardonForm("Convicted");
+	AForm*	forms[5] ={&form, &robForm, rrf, &strictForm, &will_b_copied};
 	Bureaucrat*	bureaucrats[4] ={&a, &b, &c, &d};
 
 	ft_print_status(bureaucrats, forms);
@@ -91,7 +93,8 @@ int main(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	//d = b;
+	std::cout << BLUE "#Try copy assigment" R_COL << std::endl;
+	d = b;
 	ft_print_status(bureaucrats, forms);
 	std::cout << BLUE "#Try execute before signing" R_COL << std::endl;
 	a.executeForm(robForm);
@@ -104,6 +107,8 @@ int main(void)
 	b.signForm(*rrf);
 	a.signForm(strictForm);
 	ft_print_status(bureaucrats, forms);
+	std::cout << BLUE "#Try form copy assigment" R_COL << std::endl;
+	will_b_copied = strictForm;
 	std::cout << BLUE "#Try execute after signing" R_COL << std::endl;
 	a.executeForm(form);
 	a.executeForm(robForm);
@@ -114,5 +119,7 @@ int main(void)
 	ft_print_status(bureaucrats, forms);
 	delete &d;
 	delete rrf;
+	delete &strictForm;
+	delete &will_b_copied;
 	return 0;
 }

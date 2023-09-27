@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:22:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/27 14:24:40 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/27 18:04:06 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ int main(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	//d = b;
+	std::cout << BLUE "#Try assignment operator" R_COL << std::endl;
+	d = b;
 	std::cout << YELLOW "#Status" << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;

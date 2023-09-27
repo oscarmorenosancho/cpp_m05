@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:22:34 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/26 11:11:38 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/27 18:35:59 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,9 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b)
 {
 	std::cout << "Bureaucrat copy assignment operator called for ";
 	std::cout << _name << " to become " << b._name << std::endl;
-	if (this != &b)
-	{
-		delete this;
-		Bureaucrat* tmp = new Bureaucrat(b);
-		return (*tmp);
-	}
+	if (this == &b)
+		return (*this);
+	_grade = b._grade;
 	return (*this);
 }
 

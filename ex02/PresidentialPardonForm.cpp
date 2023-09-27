@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:40:30 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/27 14:09:20 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/27 19:06:52 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& b) : 
-	AForm(b._target + "_ShrubberyCreationForm", 
+	AForm(b._target + "_PresidentialPardonForm", 
 		PRESIDENTIALPARDONSIGNGRADE, PRESIDENTIALPARDONEXECGRADE),
 	_target(b._target),
 	NotSignedException(std::string(RED EXC_T + b.getName() + N_SIGN R_COL))
@@ -44,13 +44,11 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 {
 	std::cout << "PresidentialPardonForm copy assignment operator called for ";
 	std::cout << getName() << " to become " << b.getName() << std::endl;
+	AForm::operator= (b);
 	if (this != &b)
-	{
-		delete this;
-		PresidentialPardonForm* tmp = new PresidentialPardonForm(b);
-		return (*tmp);
-	}
+		_target = b._target;
 	return (*this);
+
 }
 
 const std::runtime_error& 	PresidentialPardonForm::getNotSignedException() const

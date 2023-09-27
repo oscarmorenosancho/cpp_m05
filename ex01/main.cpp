@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:22:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/27 14:28:57 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/27 18:51:40 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ int main(void)
 	std::cout << form << std::endl;
 	std::cout << strictForm << std::endl;
 	std::cout << R_COL;
-	//d = b;
+	std::cout << BLUE "#Try copy assigment" R_COL << std::endl;
+	d = b;
 	std::cout << BLUE "#Try grade increments" R_COL << std::endl;
 	try
 	{

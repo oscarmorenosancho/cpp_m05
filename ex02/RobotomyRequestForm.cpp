@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:39:27 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/27 14:09:55 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/27 19:07:03 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& b) : 
-	AForm(b._target + "_ShrubberyCreationForm", 
+	AForm(b._target + "_RobotomyRequestForm", 
 		ROBOTOMYREQUESTSIGNGRADE, ROBOTOMYREQUESTEXECGRADE),
 	_target(b._target),
 	NotSignedException(std::string(RED EXC_T + b.getName() + N_SIGN R_COL))
@@ -46,12 +46,9 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& b
 {
 	std::cout << "RobotomyRequestForm copy assignment operator called for ";
 	std::cout << getName() << " to become " << b.getName() << std::endl;
+	AForm::operator= (b);
 	if (this != &b)
-	{
-		delete this;
-		RobotomyRequestForm* tmp = new RobotomyRequestForm(b);
-		return (*tmp);
-	}
+		_target = b._target;
 	return (*this);
 }
 

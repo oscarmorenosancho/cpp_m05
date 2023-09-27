@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:36:04 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/27 14:11:03 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/27 19:07:12 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,9 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 {
 	std::cout << "ShrubberyCreationForm copy assignment operator called for ";
 	std::cout << getName() << " to become " << b.getName() << std::endl;
+	AForm::operator= (b);
 	if (this != &b)
-	{
-		delete this;
-		ShrubberyCreationForm* tmp = new ShrubberyCreationForm(b);
-		return (*tmp);
-	}
+		_target = b._target;
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 12:20:36 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/27 14:46:45 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/27 18:55:44 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,7 @@ Intern::Intern(const Intern& b)
 Intern& Intern::operator=(const Intern& b)
 {
 	std::cout << "Intern copy assignment operator called" << std::endl;
-	if (this != &b)
-	{
-		delete this;
-		Intern* tmp = new Intern(b);
-		return (*tmp);
-	}
+	(void)b;
 	return (*this);
 }
 
