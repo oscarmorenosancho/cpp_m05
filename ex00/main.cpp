@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:22:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/26 11:08:05 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/27 14:24:40 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int main(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	d = b;
+	//d = b;
 	std::cout << YELLOW "#Status" << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;

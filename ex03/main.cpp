@@ -6,7 +6,7 @@
 /*   By: omoreno- <omoreno-@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:22:38 by omoreno-          #+#    #+#             */
-/*   Updated: 2023/09/27 13:49:00 by omoreno-         ###   ########.fr       */
+/*   Updated: 2023/09/27 14:32:50 by omoreno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int main(void)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	d = b;
+	//d = b;
 	ft_print_status(bureaucrats, forms);
 	std::cout << BLUE "#Try execute before signing" R_COL << std::endl;
 	a.executeForm(robForm);
